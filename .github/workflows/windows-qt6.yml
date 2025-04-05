@@ -1,0 +1,23 @@
+---
+name: Windows
+on:
+  push:
+
+jobs:
+  build:
+    name: windows
+    runs-on: windows-2022
+
+    steps:
+      - name: 🐩 Install CMake and Ninja
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: 3.29.6
+
+
+      - name: 🌱 Test cmake
+        shell: bash
+        run: |
+          which cmake
+          cmake --version
+          echo $PATH
